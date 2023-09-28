@@ -1,16 +1,5 @@
 {
-  "version": "2.0.0",
   "tasks": [
-    {
-      "label": "compile and run C",
-      "type": "shell",
-      "command": "gcc -Wall -pedantic -Werror ${file} -o build/${fileBasenameNoExtension}  && ./build/${fileBasenameNoExtension} ",
-      "presentation": {
-        "reveal": "always",
-        "panel": "shared"
-      },
-      "group": "build"
-    },
     {
       "type": "cppbuild",
       "label": "C/C++: gcc générer le fichier actif",
@@ -37,5 +26,6 @@
       },
       "detail": "Tâche générée par le débogueur."
     }
-  ]
+  ],
+  "version": "2.0.0"
 }
