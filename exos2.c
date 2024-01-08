@@ -27,7 +27,10 @@ int exemples(int nb) {
 void ma_fonction() {
   int ma_variable;
   printf("Donnez un entier:\n");
-  scanf("%d", &ma_variable);
+
+  int *mon_super_pointeur;
+  mon_super_pointeur = &ma_variable;
+  scanf("%d", mon_super_pointeur);
 
   int resultat = exemples(ma_variable);
 
@@ -43,43 +46,43 @@ void permutation() {
   scanf("%d%d", &a, &b);
 
   printf("Avant permutation: a = %d et b = %d.\n", a, b);
-  // coder ici
+  int k;
+  k = a;
+  a = b;
+  b = k;
 
   printf("Apres permutation: a = %d et b = %d.\n", a, b);
   return;
 }
 
-// Ecrire un programme C qui lit un entier puis détermine s’il est premier ou non.
-void premier() {
-  int p;
-  printf("Donnez un entier:\n");
-  scanf("%d", &p);
-
-  // coder ici
-  return;
+// Ecrire un programme C qui permet de permuter le contenu de deux variables entières passées en paramètre.
+void permutation_variables(int *pa, int *pb) {
+  int k;
+  k = *pa;
+  *pa = *pb;
+  *pb = k;
 }
 
-// Ecrire un programme C qui lit trois entiers pour les afficher ensuite dans un ordre croissant.
-void croissant() { return; }
-
 // Ecrire un programme C qui permet de permuter le contenu de deux variables entières en utilisant des pointeurs.
-void permutation_pointeur() { return; }
+void permutation_pointeur() {
+  int a, b;
 
-// Ecrire un programme C qui permet de permuter le contenu de deux variables entières passées en paramètre.
-void permutation_pointeur_fonction(int *a, int *b) {
-  printf("Avant permutation: a = %d et b = %d.\n", *a, *b);
-  // coder ici
+  printf("Entrez deux entiers a et b:\n");
+  scanf("%d%d", &a, &b);
 
-  printf("Apres permutation: a = %d et b = %d.\n", *a, *b);
+  printf("Avant permutation: a = %d et b = %d.\n", a, b);
+
+  permutation_variables(&a, &b);
+  permutation_variables(&a, &b);
+
+  printf("Apres permutation: a = %d et b = %d.\n", a, b);
   return;
 }
 
 // ne pas toucher pour le moment
 int main(int argc, char *argv[]) {
-  ma_fonction();
-  // premier();
-  // croissant();
+  // ma_fonction();
   // permutation();
-  // permutation_pointeur();
+  permutation_pointeur();
   return EXIT_SUCCESS;
 }
